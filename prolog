@@ -41,6 +41,9 @@ signo(N,capricornio):- nascimento(N,data(D,M,_)),((M=:=12,D>=22);(M=:=01,D=<19))
 signo(N,aquario):- nascimento(N,data(D,M,_)),((M=:=01,D>=20);(M=:=02,D=<18)).
 signo(N,peixes):- nascimento(N,data(D,M,_)),((M=:=02,D>=19);(M=:=03,D=<20)).
 
+anos(X,Y):- nascimento(X,data(D,M,Y)).
+
+
 
 
 
