@@ -2,7 +2,6 @@
 % If you want to create a file, visit that file with C-x C-f,
 % then enter the text in that file's own buffer.
 
-
 nascimento(gustavo,data(10,07,00)).
 nascimento(vitor,data(28,09,99)).
 nascimento(yuri,data(14,03,00)).
@@ -28,6 +27,20 @@ sexo(daniel,masculino).
 sexo(camila,feminino).
 sexo(rodrigo,masculino).
 sexo(hevellyn,feminino).
+
+signo(N,cancer):-nascimento(N,data(D,M,_)),((M=:=06,D>=21);(M=:=07,D=<22)).
+signo(N,libras):-nascimento(N,data(D,M,_)),((M=:=09,D>=23);(M=:=10,D=<22)).
+signo(N,aries):- nascimento(N,data(D,M,_)),((M=:=03,D>=21);(M=:=04,D=<19)).
+signo(N,touro):- nascimento(N,data(D,M,_)),((M=:=04,D>=20);(M=:=05,D=<20)).
+signo(N,gemeos):- nascimento(N,data(D,M,_)),((M=:=05,D>=21);(M=:=06,D=<21)).
+signo(N,leao):- nascimento(N,data(D,M,_)),((M=:=07,D>=23);(M=:=08,D=<22)).
+signo(N,virgem):- nascimento(N,data(D,M,_)),((M=:=09,D>=23);(M=:=09,D=<22)).
+signo(N,escorpiao):- nascimento(N,data(D,M,_)),((M=:=10,D>=23);(M=:=11,D=<21)).
+signo(N,sagitario):- nascimento(N,data(D,M,_)),((M=:=11,D>=22);(M=:=12,D=<21)).
+signo(N,capricornio):- nascimento(N,data(D,M,_)),((M=:=12,D>=22);(M=:=01,D=<19)).
+signo(N,aquario):- nascimento(N,data(D,M,_)),((M=:=01,D>=20);(M=:=02,D=<18)).
+signo(N,peixes):- nascimento(N,data(D,M,_)),((M=:=02,D>=19);(M=:=03,D=<20)).
+
 
 
 
