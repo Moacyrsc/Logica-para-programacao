@@ -1,0 +1,8 @@
+% This buffer is for notes you don't want to save.
+% If you want to create a file, visit that file with C-x C-f,
+% then enter the text in that file's own buffer.
+
+fibonacci(X,R):- X=:=1,R is 1.
+fibonacci(X,R):- X=:=2,R is 1.
+fibonacci(X,R):- X>2, X1 is X-1,X2 is X-2,fibonacci(X1,R1), fibonacci(X2,R2), R is R1+R2.
+
