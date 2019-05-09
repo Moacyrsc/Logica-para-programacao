@@ -1,0 +1,35 @@
+% This buffer is for notes you don't want to save.
+% If you want to create a file, visit that file with C-x C-f,
+% then enter the text in that file's own buffer.
+
+lista([H|T],H, T).
+primeiro([H|T],H).
+
+mes(jan,1).
+mes(fev,2).
+mes(mar,3).
+mes(abr,4).
+mes(mai,5).
+mes(jun,6).
+mes(jul,7).
+mes(ago,8).
+mes(set,9).
+mes(out,10).
+mes(nov,11).
+mes(dez,12).
+
+contador([]|[],R):- R is 0.  %lista vazia
+contador([H|[]],R):-R is 1.  %lista com um elemento
+contador([H|T],R):-contador(T,R1),R is 1+R1. %lista com mais de um elemento
+
+concatena([],L2,R):-R=L2. %concatenação
+concatena(L1,[],R):-R=L1. %
+concatena([H|L1],L2,[H|L3]):-concatena(L1,L2,L3).
+
+pertence(X,L):-concatena(_,[X|_],L).
+
+sucant(X,L,A,S):-concatena(_,[A,X,S|_],L).
+
+listasucant(X,L,A,S):- concatena(A,[X|S],L).
+
+remover(X,L,R):-listasucant(X,L,A,S),concatena(A,S,R).
