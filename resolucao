@@ -1,0 +1,87 @@
+% This buffer is for notes you don't want to save.
+% If you want to create a file, visit that file with C-x C-f,
+% then enter the text in that file's own buffer.
+
+masculino(abraham).
+masculino(clancy).
+masculino(herbert).
+masculino(homer).
+
+
+feminino(mona).
+feminino(jacqueline).
+feminino(abbie).
+feminino(marge).
+feminino(paty).
+feminino(selma).
+feminino(lisa).
+
+nascimento(abraham,20,08,1945).
+nascimento(clancy,12,02,1958).
+nascimento(herbert,19,09,1988).
+nascimento(homer,21,01,1980).
+nascimento(mona,01,11,1941).
+nascimento(jacqueline,30,04,1963).
+nascimento(abbie,28,05,1990).
+nascimento(marge,04,10,1995).
+nascimento(patty,02,03,1993).
+nascimento(selma,29,12,1992).
+nascimento(lisa,18,09,2000).
+
+progenitor(abraham,herbert).
+progenitor(abraham,homer).
+progenitor(mona,homer).
+progenitor(abraham,abbie).
+progenitor(jacqueline,abbie).
+progenitor(clancy,marge).
+progenitor(jacqueline,marge).
+progenitor(clancy,patty).
+progenitor(jacqueline,patty).
+progenitor(clancy,selma).
+progenitor(jacqueline,selma).
+
+mae(X,Y):-progenitor(X,Y),feminino(Y).
+
+irmao(X,Y):-progenitor(A,X),progenitor(A,Y), X\=Y,masculino(X).
+
+estacao(X,'outono'):- nascimento(X,D,M,_),(M==04;M==05 ; (D>=21,M==03) ; (D=<20,M==06)).
+estacao(X,'inverno'):- nascimento(X,D,M,_),(M==07;M==08 ; (D>=21,M==06) ; (D=<21,M==09)).
+estacao(X,'primavera'):- nascimento(X,D,M,_),(M==10;M==11 ; (D>=22,M==9) ; (D=<21,M==12)).
+estacao(X,'verao'):- nascimento(X,D,M,_),(M==01;M==02 ; (D>=22,M==12) ; (D=<20,M==03)).
+
+%questao2
+conectado(1,2).
+conectado(3,4).
+conectado(5,6).
+conectado(7,8).
+conectado(9,10).
+conectado(12,13).
+conectado(13,14).
+conectado(15,16).
+conectado(17,18).
+conectado(19,20).
+conectado(4,1).
+conectado(6,3).
+conectado(4,7).
+conectado(6,11).
+conectado(14,9).
+conectado(11,15).
+conectado(16,12).
+conectado(14,17).
+conectado(16,19).
+
+caminho(X,Y):- conectado(X,Y).
+caminho(X,Y):- caminho(X,Z),caminho(Z,Y).
+
+%questao3
+
+substitui(X,Y,[X|T],[Y|T]).
+substitui(X,Y,[H|R],[H,S]):- H\=X,substitui(X,Y,R,S).
+substitui(X,Y,[H|R],[Y|S]):- H==X,substitui(X,Y,R,S).
+
+
+
+
+
+
+
